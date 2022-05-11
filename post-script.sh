@@ -24,11 +24,11 @@ sudo systemctl set-default graphical.target
 # copy config files for awesomeWM
 bash awesome-build.sh
 bash picom.sh
-git clone https://github.com/ichbinram/dotfiles.git $HOME/
 #git clone -b awesome4.3-stable https://github.com/HikariKnight/material-awesome.git $HOME/.config/awesome
 sudo cp -fdr awesomewm.desktop /usr/share/xsessions/awesomewm.desktop
 # git clone https://github.com/lcpz/lain.git $HOME/.config/awesome/lain
 
+git clone https://github.com/ichbinram/dotfiles.git
 # download fedora specific packages
 git clone https://github.com/christitustech/fedora-titus
 # install sddm theme
@@ -37,6 +37,7 @@ mkdir -p $HOME/.config
 #cp -r $dir/fedora-titus/dotconfig/* $HOME/.config/
 mkdir -p $HOME/.wallpaper
 cp $dir/fedora-titus/bg.jpg $HOME/.wallpaper/
+mv $dir/dotfiles/ $HOME/
 sudo dnf install $dir/fedora-titus/rpm-packages/*.rpm -y
 sudo pip install autorandr
 
