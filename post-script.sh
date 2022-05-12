@@ -2,6 +2,7 @@
 
 #TODO: Install Meslo-fonts
 dir=$(pwd)
+shopt -s dotglob
 # dnf optimizations
 echo "defaultyes=True" | sudo tee -a /etc/dnf/dnf.conf > /dev/null
 echo "max_parallel_downloads=10" | sudo tee -a /etc/dnf/dnf.conf > /dev/null
@@ -26,6 +27,7 @@ bash awesome-build.sh
 bash picom.sh
 #git clone -b awesome4.3-stable https://github.com/HikariKnight/material-awesome.git $HOME/.config/awesome
 sudo cp -fdr awesomewm.desktop /usr/share/xsessions/awesomewm.desktop
+sudo cp -fdr 50-synaptics.conf /etc/X11/xorg.conf.d/
 # git clone https://github.com/lcpz/lain.git $HOME/.config/awesome/lain
 
 git clone https://github.com/ichbinram/dotfiles.git
@@ -36,8 +38,7 @@ git clone https://github.com/keyitdev/sddm-astronaut-theme.git
 mkdir -p $HOME/.config
 #cp -r $dir/fedora-titus/dotconfig/* $HOME/.config/
 mkdir -p $HOME/.wallpaper
-cp $dir/fedora-titus/bg.jpg $HOME/.wallpaper/
-mv $dir/dotfiles/ $HOME/
+mv $dir/dotfiles/* $HOME/
 sudo dnf install $dir/fedora-titus/rpm-packages/*.rpm -y
 sudo pip install autorandr
 
